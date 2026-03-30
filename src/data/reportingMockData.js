@@ -266,7 +266,7 @@ export const TICKET_THEME_CATEGORIES = [
   { key: 'AI Search',                           color: '#8b5cf6' },
   { key: 'Access & Login',                      color: '#f97316' },
   { key: 'Billing',                             color: '#64748b' },
-  { key: 'Notifications',                       color: '#0ea5e9' },
+  { key: 'AI Chat',                              color: '#0ea5e9' },
 ];
 
 // Map ltcArea to theme category for chart 3
@@ -276,9 +276,9 @@ export const LTC_AREA_TO_THEME = {
   Search:        'AI Search',
   Access:        'Access & Login',
   Billing:       'Billing',
-  Alerts:        'Notifications',
+  Alerts:        'AI Chat',
   Compliance:    'Survey Readiness',
-  Notifications: 'Notifications',
+  Notifications: 'AI Chat',
   Admin:         'Access & Login',
   Escalation:    'Plan of Correction',
   Reporting:     'Survey Readiness',

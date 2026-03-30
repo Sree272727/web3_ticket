@@ -107,6 +107,7 @@ function DonutChart({ segments, centerLabel, centerValue }) {
 
 function PieChart({ data }) {
   const total = data.reduce((s, d) => s + d.count, 0) || 1;
+  const [hovered, setHovered] = useState(null);
   const cx = 100, cy = 100, r = 90;
   let cumAngle = -90;
 
@@ -126,14 +127,40 @@ function PieChart({ data }) {
 
     const path = `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z`;
 
+    // Label position: midpoint of the arc, pushed outward
+    const midAngle = ((startAngle + endAngle) / 2) * Math.PI / 180;
+    const labelR = r * 0.6;
+    const labelX = cx + labelR * Math.cos(midAngle);
+    const labelY = cy + labelR * Math.sin(midAngle);
+
     return (
-      <path
-        key={i}
-        d={path}
-        fill={d.color}
-        stroke="#fff"
-        strokeWidth={1.5}
-      />
+      <g key={i}
+        onMouseEnter={() => setHovered(i)}
+        onMouseLeave={() => setHovered(null)}
+        style={{ cursor: 'default' }}
+      >
+        <path
+          d={path}
+          fill={d.color}
+          stroke="#fff"
+          strokeWidth={1.5}
+          opacity={hovered !== null && hovered !== i ? 0.5 : 1}
+          style={{ transition: 'opacity 0.2s' }}
+        />
+        {hovered === i && (
+          <text
+            x={labelX} y={labelY}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fontSize="12"
+            fontWeight="800"
+            fill="#fff"
+            style={{ pointerEvents: 'none', textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
+          >
+            {Math.round(pct * 100)}%
+          </text>
+        )}
+      </g>
     );
   });
 
@@ -478,16 +505,23 @@ export default function ReportingDashboardPage() {
       .sort((a, b) => b.deflectionScore - a.deflectionScore);
   }, [filteredTickets]);
 
-  // ── Chart 1: Tickets by Module (pie chart) ──────────────────────
-  const moduleData = useMemo(() => {
+  // ── Chart 1: Tickets by Category (pie chart) ─────────────────────
+  const CATEGORY_COLORS = {
+    'Bug': '#ef4444',
+    'How Do I': '#2563eb',
+    'Do You Have': '#8b5cf6',
+    'General': '#10b981',
+    'Access & Login': '#f59e0b',
+    'Billing & Renewal': '#f97316',
+  };
+  const categoryPieData = useMemo(() => {
     const counts = {};
     filteredTickets.forEach(t => {
-      const mod = t.module || 'Other';
-      counts[mod] = (counts[mod] || 0) + 1;
+      const cat = t.category || 'Other';
+      counts[cat] = (counts[cat] || 0) + 1;
     });
-    return PLATFORM_MODULES
-      .map(m => ({ label: m.key, count: counts[m.key] || 0, color: m.color }))
-      .filter(d => d.count > 0)
+    return Object.entries(counts)
+      .map(([cat, count]) => ({ label: cat, count, color: CATEGORY_COLORS[cat] || '#64748b' }))
       .sort((a, b) => b.count - a.count);
   }, [filteredTickets]);
 
@@ -720,13 +754,13 @@ export default function ReportingDashboardPage() {
             </div>
           </div>
 
-          {/* Chart 1: Tickets by Module */}
+          {/* Chart 1: Tickets by Category */}
           <div className="rd-panel">
             <div className="rd-panel-header">
-              <div className="rd-panel-title">Tickets by Module</div>
-              <div className="rd-panel-sub">Distribution of tickets across platform modules · {timePeriod.label}</div>
+              <div className="rd-panel-title">Tickets by Category</div>
+              <div className="rd-panel-sub">Distribution of tickets by issue type · {timePeriod.label}</div>
             </div>
-            <PieChart data={moduleData} />
+            <PieChart data={categoryPieData} />
           </div>
         </div>
 
@@ -757,30 +791,13 @@ export default function ReportingDashboardPage() {
 
         {/* ── Row 3: Themes/UserType + Status Mix ────────────────────── */}
         <div className="rd-row-2col">
-          {/* Chart 3: Themes / User Type toggle */}
+          {/* Chart 3: Ticket Themes */}
           <div className="rd-panel">
-            <div className="rd-panel-header rd-panel-header-flex">
-              <div>
-                <div className="rd-panel-title">
-                  {chart3View === 'themes' ? 'Ticket Themes by Category' : 'Tickets by User Type'}
-                </div>
-                <div className="rd-panel-sub">
-                  {chart3View === 'themes'
-                    ? `Most common issue themes · ${timePeriod.label}`
-                    : `Which user roles raise the most tickets · ${timePeriod.label}`
-                  }
-                </div>
-              </div>
-              <ToggleSwitch
-                options={[
-                  { value: 'themes', label: 'Themes' },
-                  { value: 'users', label: 'User Type' },
-                ]}
-                active={chart3View}
-                onChange={setChart3View}
-              />
+            <div className="rd-panel-header">
+              <div className="rd-panel-title">Ticket Themes by Category</div>
+              <div className="rd-panel-sub">Most common issue themes · {timePeriod.label}</div>
             </div>
-            <VerticalBarChart data={chart3Data} maxVal={chart3Max} />
+            <VerticalBarChart data={themeData} maxVal={Math.max(...themeData.map(d => d.count), 1)} />
           </div>
 
           {/* Chart 4: Open vs Resolved vs Waiting */}
