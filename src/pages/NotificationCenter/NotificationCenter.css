@@ -1,0 +1,418 @@
+/* /src/pages/NotificationCenter/NotificationCenter.css */
+/* ============================================================
+   TCS Platform — Notification Center Page
+   ============================================================ */
+
+.nc-page {
+  padding: 28px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: var(--font-primary), var(--font-fallback);
+}
+
+/* ── Header ── */
+.nc-header {
+  margin-bottom: 24px;
+}
+
+.nc-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nc-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.nc-subtitle {
+  font-size: 13px;
+  color: var(--color-text-body);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.nc-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nc-btn-mark-all {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.nc-btn-mark-all:hover {
+  background-color: var(--color-bg-lighter);
+  border-color: var(--color-border-dark);
+}
+
+.nc-btn-mark-all:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Summary Cards ── */
+.nc-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.nc-summary-card {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.15s;
+}
+
+.nc-summary-card:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.nc-summary-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.nc-summary-icon.unread    { background-color: #eff6ff; color: #2563eb; }
+.nc-summary-icon.alert     { background-color: #fef2f2; color: #dc2626; }
+.nc-summary-icon.training  { background-color: #fffbeb; color: #d97706; }
+.nc-summary-icon.other     { background-color: #f0fdf4; color: #059669; }
+
+.nc-summary-info {}
+
+.nc-summary-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1;
+}
+
+.nc-summary-label {
+  font-size: 11px;
+  color: var(--color-text-body);
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+/* ── Filter Bar ── */
+.nc-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.nc-filter-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-text-light);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.nc-filter-select {
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-body);
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 130px;
+}
+
+.nc-filter-select:focus {
+  border-color: var(--color-primary);
+}
+
+.nc-filter-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-border);
+  margin: 0 4px;
+}
+
+.nc-filter-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--color-text-body);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Notification List ── */
+.nc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Notification Card ── */
+.nc-notification-card {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.nc-notification-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+.nc-notification-card.unread {
+  border-left: 3px solid var(--color-primary);
+  background-color: #fafcff;
+}
+
+.nc-notification-card.unread:hover {
+  border-left-color: var(--color-primary);
+}
+
+.nc-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.nc-card-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.nc-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nc-card-date {
+  font-size: 11px;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.nc-unread-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.nc-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin: 0 0 5px;
+  line-height: 1.4;
+}
+
+.nc-card-message {
+  font-size: 12px;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.nc-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.nc-card-company {
+  font-size: 11px;
+  color: var(--color-text-light);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nc-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s;
+  flex-shrink: 0;
+}
+
+.nc-card-action:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ── Type Badges ── */
+.nc-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.nc-type-badge.compliance-alert  { background-color: #fef2f2; color: #dc2626; }
+.nc-type-badge.training-reminder { background-color: #fffbeb; color: #d97706; }
+.nc-type-badge.document-update   { background-color: #f0f9ff; color: #0369a1; }
+.nc-type-badge.system-notice     { background-color: #f5f3ff; color: #7c3aed; }
+.nc-type-badge.account-alert     { background-color: #f0fdf4; color: #059669; }
+.nc-type-badge.support-update    { background-color: #fff7ed; color: #c2410c; }
+
+/* ── Priority Badge ── */
+.nc-priority-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.nc-priority-badge.critical { background-color: #dc2626; color: #fff; }
+.nc-priority-badge.high     { background-color: #f97316; color: #fff; }
+.nc-priority-badge.medium   { background-color: #eab308; color: #fff; }
+.nc-priority-badge.low      { background-color: #e2e8f0; color: #475569; }
+
+/* ── Empty State ── */
+.nc-empty-state {
+  text-align: center;
+  padding: 64px 24px;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.nc-empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.nc-empty-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin: 0 0 6px;
+}
+
+.nc-empty-desc {
+  font-size: 13px;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
+/* ── Persona Info Banner ── */
+.nc-persona-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  color: #0369a1;
+}
+
+.nc-persona-banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nc-persona-banner-dot.tcs-admin        { background-color: #7c3aed; }
+.nc-persona-banner-dot.tcs-employee     { background-color: #2563eb; }
+.nc-persona-banner-dot.customer-admin   { background-color: #059669; }
+.nc-persona-banner-dot.customer-employee{ background-color: #d97706; }
+.nc-persona-banner-dot.account-manager  { background-color: #dc2626; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .nc-page { padding: 20px 16px; }
+  .nc-summary { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .nc-summary { grid-template-columns: 1fr 1fr; }
+  .nc-filter-bar { flex-direction: column; align-items: stretch; }
+  .nc-filter-count { margin-left: 0; }
+  .nc-header-row { flex-direction: column; }
+}

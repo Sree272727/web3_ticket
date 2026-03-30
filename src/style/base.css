@@ -1,0 +1,182 @@
+/**
+ * The Compliance Store - Base Styles
+ * Export for React Projects
+ *
+ * Usage: Import after variables.css
+ * import './styles/variables.css';
+ * import './styles/base.css';
+ */
+
+/* ============================================
+   CSS RESET & BASE
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary), var(--font-fallback);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-body);
+  color: var(--color-text-body);
+  background-color: var(--color-bg-body);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  font-family: var(--font-primary), var(--font-fallback);
+  color: var(--color-text-dark);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+  line-height: 1.25em;
+  font-weight: var(--font-weight-normal);
+  text-transform: none;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+  line-height: 1.38em;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  line-height: 1.30em;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+h4 {
+  font-size: var(--font-size-3xl);
+  line-height: 1.375em;
+  font-weight: var(--font-weight-normal);
+  text-transform: none;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+h5 {
+  font-size: var(--font-size-md);
+  line-height: 1.57em;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+h6 {
+  font-size: var(--font-size-xs);
+  line-height: 1.54em;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+p {
+  margin: 0 0 var(--spacing-sm);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-navy);
+  text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-error {
+  color: var(--color-error);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Spacing Utilities */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+.p-5 { padding: var(--spacing-xl); }

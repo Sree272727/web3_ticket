@@ -1,0 +1,661 @@
+/**
+ * The Compliance Store - Component Styles
+ * Export for React Projects
+ *
+ * Usage: Import after base.css
+ * import './styles/variables.css';
+ * import './styles/base.css';
+ * import './styles/components.css';
+ */
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  display: inline-block;
+  padding: 8px 15px;
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-base);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  color: white;
+  text-decoration: none;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: var(--color-primary-light);
+  color: white;
+  padding: 15px 80px;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-lighter);
+  color: white;
+  text-decoration: none;
+}
+
+/* Outline Button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: var(--border-width) solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+/* Dark Button */
+.btn-dark {
+  background-color: rgb(68, 68, 68);
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: var(--color-text-dark);
+  color: white;
+  text-decoration: none;
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: var(--font-size-xs);
+}
+
+.btn-lg {
+  padding: 15px 40px;
+  font-size: var(--font-size-lg);
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-medium);
+}
+
+.form-label.required::after {
+  content: " *";
+  color: var(--color-error);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 15px 32px;
+  font-family: inherit;
+  font-size: var(--font-size-lg);
+  color: #0d0d0d;
+  background-color: var(--color-bg-body);
+  border: var(--border-width-thick) solid var(--color-bg-body);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-slow);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  background-color: var(--color-bg-white);
+  border-bottom-color: var(--color-primary-light);
+  outline: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* Compact Form Input */
+.form-input-compact {
+  padding: 8px 12px;
+  font-size: var(--font-size-base);
+}
+
+/* Select */
+.form-select {
+  height: 48px;
+  padding: 12px 16px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23595959' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+/* Textarea */
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Checkbox & Radio */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.form-check-label {
+  cursor: pointer;
+}
+
+/* Form Wrapper (Login/Auth style) */
+.form-wrapper {
+  max-width: 450px;
+  padding: 30px;
+  background: var(--color-bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   CARDS & PANELS
+   ============================================ */
+
+.card {
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--color-bg-white);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-light);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.card-body {
+  padding: var(--spacing-md);
+}
+
+.card-footer {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-light);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+/* Panel (Alternative card style) */
+.panel {
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--color-bg-light);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-default {
+  border-color: var(--color-border);
+}
+
+.panel-heading {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.panel-body {
+  padding: 1px 0 1px var(--spacing-xs);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+/* Sidebar Navigation */
+.nav-sidebar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 8px;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-nav);
+}
+
+.nav-sidebar-item.level-0 {
+  background-color: var(--color-nav-level-0);
+}
+
+.nav-sidebar-item.level-1 {
+  background-color: var(--color-nav-level-1);
+}
+
+.nav-sidebar-item.level-2 {
+  background-color: var(--color-nav-level-2);
+}
+
+.nav-sidebar-item.level-3 {
+  background-color: var(--color-nav-level-3);
+}
+
+.nav-sidebar-item.level-4 {
+  background-color: var(--color-nav-level-4);
+}
+
+.nav-sidebar-item.level-5 {
+  background-color: var(--color-nav-level-5);
+}
+
+.nav-sidebar-item:hover,
+.nav-sidebar-item.active {
+  background-color: var(--color-nav-active-1);
+}
+
+.nav-sidebar-item.level-2:hover,
+.nav-sidebar-item.level-2.active {
+  background-color: var(--color-nav-active-2);
+}
+
+.nav-sidebar-item.level-3:hover,
+.nav-sidebar-item.level-3.active {
+  background-color: var(--color-nav-active-3);
+}
+
+.nav-sidebar-item.level-4:hover,
+.nav-sidebar-item.level-4.active {
+  background-color: var(--color-nav-active-4);
+}
+
+.nav-sidebar-item.level-5:hover,
+.nav-sidebar-item.level-5.active {
+  background-color: var(--color-nav-active-5);
+}
+
+.nav-sidebar-children {
+  padding-left: var(--spacing-md);
+  margin-bottom: 3px;
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.pagination-item {
+  margin: 0 2px;
+}
+
+.pagination-link {
+  display: block;
+  padding: 6px 12px;
+  color: var(--color-link);
+  background-color: var(--color-bg-white);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+}
+
+.pagination-link:hover {
+  color: var(--color-primary-navy);
+  background-color: var(--color-bg-lighter);
+  text-decoration: none;
+}
+
+.pagination-item.active .pagination-link {
+  color: white;
+  background-color: var(--color-primary);
+  border-color: #007eaf;
+}
+
+.pagination-info {
+  padding: 6px 12px;
+  color: grey;
+  font-weight: var(--font-weight-semibold);
+  background-color: transparent;
+  border: none;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-lg);
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: left;
+  border-bottom: var(--border-width) solid var(--color-border);
+  color: var(--color-text-dark);
+}
+
+.table th {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--color-bg-lighter);
+}
+
+/* ============================================
+   SEARCH
+   ============================================ */
+
+.search-container {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.search-heading {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.search-form {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  min-height: 70px;
+  padding: 0 var(--spacing-lg);
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-medium);
+  background-color: var(--color-bg-white);
+  border: 0;
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-submit {
+  width: 106px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(68, 68, 68);
+  color: white;
+  border: 0;
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.search-submit:hover {
+  background-color: var(--color-text-dark);
+}
+
+/* ============================================
+   ALERTS & MESSAGES
+   ============================================ */
+
+.alert {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+.alert-success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.alert-success a {
+  color: white;
+  text-decoration: underline;
+  font-weight: var(--font-weight-semibold);
+}
+
+.alert-error {
+  background-color: var(--color-error);
+  color: white;
+}
+
+.alert-warning {
+  background-color: var(--color-warning);
+  color: white;
+}
+
+.alert-info {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Text-only error/success */
+.text-error-message {
+  color: var(--color-error);
+  font-weight: var(--font-weight-semibold);
+}
+
+.text-success-message {
+  color: var(--color-success);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ============================================
+   VIDEO CONTAINER (16:9 Responsive)
+   ============================================ */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 25px;
+  margin-bottom: 1em;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   LOADER / SPINNER
+   ============================================ */
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--shadow-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-modal);
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--color-bg-light);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   TABS / TOGGLE BUTTONS
+   ============================================ */
+
+.tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: var(--spacing-sm);
+  background-color: var(--color-text-placeholder);
+  color: var(--color-text-dark);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background-color: var(--color-primary-cyan);
+  color: white;
+}
+
+/* ============================================
+   FILE UPLOAD
+   ============================================ */
+
+.file-upload {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 25px;
+  margin-left: -10px;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.file-upload-label {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-base);
+}
+
+.file-upload-label:hover {
+  background-color: var(--color-accent);
+}
+
+/* ============================================
+   LIST GROUPS
+   ============================================ */
+
+.list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-white);
+  border: var(--border-width) solid var(--color-border);
+  margin-bottom: -1px; /* Collapse borders */
+}
+
+.list-group-item:first-child {
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.list-group-item:last-child {
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+  margin-bottom: 0;
+}
+
+.list-group-item:hover {
+  background-color: var(--color-bg-lighter);
+}
+
+/* ============================================
+   DOCUMENT ENTRY (Popular Documents style)
+   ============================================ */
+
+.document-entry {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+  background-color: var(--color-bg-white);
+}
+
+.document-entry-title {
+  font-family: 'Raleway', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgb(137, 139, 142);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.document-entry-title:hover {
+  color: var(--color-accent-orange);
+  text-decoration: underline;
+}

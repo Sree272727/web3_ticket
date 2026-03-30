@@ -1,0 +1,164 @@
+/**
+ * The Compliance Store - CSS Custom Properties (CSS Variables)
+ * Export for React Projects
+ *
+ * Usage: Import this file at the root of your React app
+ * import './styles/variables.css';
+ */
+
+:root {
+  /* ============================================
+     COLOR PALETTE
+     ============================================ */
+
+  /* Primary Colors */
+  --color-primary: #009eda;
+  --color-primary-light: #56baed;
+  --color-primary-lighter: #39ace7;
+  --color-primary-cyan: #00b9ff;
+  --color-primary-bright: #00a0d7;
+  --color-primary-dark: #006e99;
+  --color-primary-darker: #0084b7;
+  --color-primary-navy: #23527c;
+  --color-link: #337ab7;
+  --color-link2: #337ab7;
+
+  /* Accent Colors */
+  --color-accent: #a3d55f;
+  --color-accent-orange: #f28800;
+
+  /* Neutral Colors */
+  --color-text-dark: #303030;
+  --color-text-medium: #595959;
+  --color-text-body: #818181;
+  --color-text-light: #aaa;
+  --color-text-placeholder: #cccccc;
+
+  /* Background Colors */
+  --color-bg-body: #f6f6f6;
+  --color-bg-light: #e6e6e6;
+  --color-bg-lighter: #eee;
+  --color-bg-white: #ffffff;
+
+  /* Border Colors */
+  --color-border: #ddd;
+  --color-border-dark: #aaa;
+
+  /* Navigation Colors (Multi-level) */
+  --color-nav-level-0: rgb(0, 185, 255);
+  --color-nav-level-1: #2b2b2b;
+  --color-nav-level-2: #373737;
+  --color-nav-level-3: #4c4c4c;
+  --color-nav-level-4: #666666;
+  --color-nav-level-5: #8f8f8f;
+  --color-nav-active-1: #009eda;
+  --color-nav-active-2: #006e99;
+  --color-nav-active-3: #0084b7;
+  --color-nav-active-4: #00a1df;
+  --color-nav-active-5: #00b9ff;
+
+  /* Semantic Colors */
+  --color-success: green;
+  --color-error: red;
+  --color-warning: #f28800;
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+
+  /* Font Families */
+  --font-primary: 'Raleway', sans-serif;
+  --font-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 13px;
+  --font-size-sm: 14px;
+  --font-size-base: 14px;
+  --font-size-md: 15px;
+  --font-size-lg: 16px;
+  --font-size-xl: 17px;
+  --font-size-2xl: 18px;
+  --font-size-3xl: 19px;
+  --font-size-4xl: 24px;
+  --font-size-5xl: 30px;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.30;
+  --line-height-normal: 1.38;
+  --line-height-relaxed: 1.54;
+  --line-height-loose: 1.57;
+  --line-height-body: 26px;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Letter Spacing */
+  --letter-spacing-normal: normal;
+  --letter-spacing-wide: 1px;
+
+  /* ============================================
+     SPACING
+     ============================================ */
+
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  --spacing-2xl: 50px;
+
+  /* ============================================
+     BORDERS & RADIUS
+     ============================================ */
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 5px;
+  --border-radius-lg: 10px;
+
+  --border-width: 1px;
+  --border-width-thick: 2px;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+
+  --shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  --shadow-lg: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  --shadow-overlay: rgba(0, 0, 0, 0.1);
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+
+  --transition-fast: all 0.1s linear;
+  --transition-base: all 0.3s ease-in-out;
+  --transition-slow: all 0.5s ease-in-out;
+  --transition-nav: all 300ms ease-in-out;
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+
+  --z-index-dropdown: 100;
+  --z-index-sticky: 200;
+  --z-index-fixed: 300;
+  --z-index-modal-backdrop: 400;
+  --z-index-modal: 500;
+  --z-index-popover: 600;
+  --z-index-tooltip: 700;
+
+  /* ============================================
+     BREAKPOINTS (for reference - use in JS/media queries)
+     ============================================ */
+
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 1000px;
+  --breakpoint-tablet-lg: 1020px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop-lg: 1281px;
+  --breakpoint-desktop-xl: 1367px;
+}
