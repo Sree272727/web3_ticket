@@ -486,7 +486,7 @@
 
 .rd-res-row {
   display: grid;
-  grid-template-columns: auto 1fr 44px;
+  grid-template-columns: 130px 1fr 44px;
   align-items: center;
   gap: 12px;
   width: 100%;
